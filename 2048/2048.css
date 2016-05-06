@@ -2,8 +2,10 @@ header {
     display: block;
     margin: 0px auto;
     width: 500px;
-    height: 175px;
+    height: 200px;
     text-align: center;
+
+    font-size: 50px;
     font-family: Arial;
     position: relative;
 }
@@ -11,11 +13,11 @@ header {
 header h1 {
 	display: block;
 	width: 30%; /* 去掉内联样式 width: 150px!important*/
-    height: 30%;
-    line-height: 290%;
+    height: 75%;
+    line-height: 300%;
     border-radius: 10%;
 	
-    font-size: 10%; /* 50px */
+    font-size: 100%;
     font-weight: bold;
     margin: 2% auto;
     color: #FFFFFF;
@@ -25,10 +27,10 @@ header h1 {
 
 header #right-layout {
     display: block;
-    width: 62%;
-    height: 30%;
-    margin: 2% auto;
-    margin-left: 4%; /* 20px */
+    width: 310px;
+    height: 150px;
+    margin: 10px auto;
+    margin-left: 20px; /* 20px */
     float: right;
 }
 
@@ -76,6 +78,7 @@ header #newgamebutton {
     border-radius: 10px; /* 圆角 */
 
     /* "New Game"的样式 */
+    font-size: 20px;
     color: white;
     text-decoration: none; /* 去掉超链接的下划线 */
     box-sizing: border-box;
@@ -132,6 +135,7 @@ header #undobutton {
     margin-left: 10%;
 
     /* "New Game"的样式 */
+    font-size: 20px;
     color: white;
     text-decoration: none; /* 去掉超链接的下划线 */
     box-sizing: border-box;

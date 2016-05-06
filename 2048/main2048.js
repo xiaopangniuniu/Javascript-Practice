@@ -406,14 +406,9 @@ function prepareForMobile() {
 	}
 	// 在这里改变原来css的样式
 	// header h1
-	$('h1').css('width', 0.3*gridContainerWidth);
+/*	$('h1').css('width', 0.3*gridContainerWidth);
 	$('h1').css('height', 0.3*gridContainerWidth);
-	// $('h1').css('border-radius', 0.03*gridContainerWidth);
-	$('h1').css('font-size', 0.1*gridContainerWidth);
-
-	// header #right-layout
-	$('#right-layout').css('width', 0.62*gridContainerWidth);
-	$('#right-layout').css('height', 0.3*gridContainerWidth);
+	$('h1').css('font-size', 0.1*gridContainerWidth);*/
 	
 	$('#grid-container').css('width', gridContainerWidth - 2*cellSpace);
 	$('#grid-container').css('height', gridContainerWidth - 2*cellSpace);
