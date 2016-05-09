@@ -3,6 +3,10 @@ var board = new Array(); // 4x4 board
 var score = 0;
 var hasConflicted = new Array();
 
+// 用于undo
+var oldBoard = new Array();
+var oldScore = 0;
+
 // touchStart + touchEnd
 var startx = 0;
 var starty = 0;
@@ -37,9 +41,11 @@ function init() {
 	// board定义的时候是一维数组，需要改成二维数组
 	for (var i = 0; i < 4; i++) {
 		board[i] = new Array(); // 把board中每个元素都声明成数组，就变成二维的了
+		oldBoard[i] = new Array();
 		hasConflicted[i] = new Array();
 		for (var j = 0; j < 4; j++) {
 			board[i][j] = 0;
+			oldBoard[i][j] = 0;
 			hasConflicted[i][j] = false;
 		}
 	}
@@ -80,7 +86,7 @@ function updateBoardView() {
 				// 数字本身的颜色，也根据数字的值而变化
 				theNumberCell.css('color', getNumberColor( board[i][j] ));
 				// 數字的值不同，字体大小也不同
-				theNumberCell.css('font-size', getNumberSize( border[i][j] ));
+				theNumberCell.css('font-size', getNumberSize( board[i][j] ));
 				// 把数值显示出来
 				theNumberCell.text( board[i][j] );
 			}
@@ -251,6 +257,9 @@ function gameOver() {
 function moveLeft() {
 	if ( !canMoveLeft( board ) )
 		return false;
+	// save current board
+	saveOldStatus (board, oldBoard, score, oldScore);
+
 	// move left
 	// 1. 移动到哪儿?
 	// 2. 是否需要进行叠加
@@ -296,6 +305,8 @@ function moveLeft() {
 function moveRight() {
 	if ( !canMoveRight( board ) )
 		return false;
+	// save current board
+	saveOldStatus (board, oldBoard, score, oldScore);
 
 	for (var i = 0; i < 4; i++)
 		for (var j = 2; j >= 0; j--)
@@ -335,6 +346,9 @@ function moveUp() {
 	// 先判断能否移动
 	if ( !canMoveUp(board) )
 		return false;
+	// save current board
+	saveOldStatus (board, oldBoard, score, oldScore);
+
 	for (var j = 0; j < 4; j++)
 		for (var i = 1; i < 4; i++)	
 			if (board[i][j] != 0) {
@@ -371,6 +385,8 @@ function moveUp() {
 function moveDown() {
 	if ( !canMoveDown(board) )
 		return false;
+	// save current board
+	saveOldStatus (board, oldBoard, score, oldScore);
 
 	for (var j = 0; j < 4; j++)
 		for (var i = 2; i >= 0; i--)
@@ -453,5 +469,19 @@ function prepareForMobile() {
 }
 
 function undo() {
-	console.log("debug info: call undo...");
+	// console.log("debug info: call undo...");
+	// restore
+	for (var i = 0; i < 4; i++)
+		for (var j = 0; j < 4; j++) {
+			board[i][j] = oldBoard[i][j];
+			if (board[i][j] != 0 ) {
+				// 显示时需要有动画效果
+				// showNumberWithAnimation(i, j, board[i][j]);
+			}
+		}			
+	score = oldScore;	
+
+	updateBoardView();
+	// setTimeout("updateBoardView()", 200);
+	updateScore(score);
 }

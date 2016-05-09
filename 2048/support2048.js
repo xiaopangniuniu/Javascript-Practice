@@ -117,3 +117,11 @@ function noMove(board) {
 		return false;
 	return true;
 }
+
+function saveOldStatus (board, oldBoard, score, oldScore) {
+	for (var i = 0; i < 4; i++)
+		for (var j = 0; j < 4; j++)
+			oldBoard[i][j] = board[i][j];
+
+	oldScore = score;
+}
