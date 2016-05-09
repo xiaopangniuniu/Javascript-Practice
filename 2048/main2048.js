@@ -79,14 +79,17 @@ function updateBoardView() {
 				theNumberCell.css('background-color', getNumberBackgroudColor( board[i][j] ));
 				// 数字本身的颜色，也根据数字的值而变化
 				theNumberCell.css('color', getNumberColor( board[i][j] ));
+				// 數字的值不同，字体大小也不同
+				theNumberCell.css('font-size', getNumberSize( border[i][j] ));
 				// 把数值显示出来
 				theNumberCell.text( board[i][j] );
 			}
 
 			hasConflicted[i][j] = false;
 		}
+	
 	$('.number-cell').css('line-height', cellSideLength+'px');
-	$('.number-cell').css('font-size', 0.6*cellSideLength+'px');
+	// $('.number-cell').css('font-size', 0.6*cellSideLength+'px');
 }
 
 function generateOneNumber() {
@@ -122,6 +125,8 @@ function generateOneNumber() {
 	}
 
 	// 随机生成一个数字： 2 或 4
+	// for test:
+	//var randNumber = 1024;
 	var randNumber = Math.random() <= 0.5 ? 2 : 4;
 
 	// 把数字显示在相应的格子里
@@ -405,16 +410,43 @@ function prepareForMobile() {
 		cellSpace = 20;
 	}
 	// 在这里改变原来css的样式
+	// header
+	$('header').css('width', gridContainerWidth);
+	$('header').css('height', 0.35*gridContainerWidth);
 	// header h1
-/*	$('h1').css('width', 0.3*gridContainerWidth);
+	$('h1').css('width', 0.3*gridContainerWidth);
 	$('h1').css('height', 0.3*gridContainerWidth);
-	$('h1').css('font-size', 0.1*gridContainerWidth);*/
-	
+	$('h1').css('font-size', 0.1*gridContainerWidth);
+	// header #right-layout
+	$('#right-layout').css('width', 0.62*gridContainerWidth);
+	$('#right-layout').css('height', 0.3*gridContainerWidth);
+	$('#right-layout').css('margin-right', 0.02*gridContainerWidth);
+	$('#right-layout').css('margin-top', 0.02*gridContainerWidth);
+	$('#right-layout').css('margin-bottom', 0.02*gridContainerWidth);
+	$('#right-layout').css('margin-left', 0.024*gridContainerWidth);
+	// header scoretext
+	$('#scoretext').css('font-size', 0.04*gridContainerWidth);
+	// header score
+	$('#score').css('font-size', 0.06*gridContainerWidth);
+	// header newgamebutton
+	$('#newgamebutton').css('font-size', 0.04*gridContainerWidth);
+	$('#newgamebutton').css('padding', 0.024*gridContainerWidth);
+	$('#newgamebutton').css('border-radius', 0.02*gridContainerWidth);
+	// header besttext
+	$('#besttext').css('font-size', 0.04*gridContainerWidth);
+	// header best
+	$('#best').css('font-size', 0.06*gridContainerWidth);
+	// header undobutton
+	$('#undobutton').css('font-size', 0.04*gridContainerWidth);
+	$('#undobutton').css('padding', 0.024*gridContainerWidth);
+	$('#undobutton').css('border-radius', 0.02*gridContainerWidth);
+
+	// header grid-container
 	$('#grid-container').css('width', gridContainerWidth - 2*cellSpace);
 	$('#grid-container').css('height', gridContainerWidth - 2*cellSpace);
 	$('#grid-container').css('padding', cellSpace);
 	$('#grid-container').css('border-radius', 0.02*gridContainerWidth);
-
+	// header grid-cell
 	$('.grid-cell').css('width', cellSideLength);
 	$('.grid-cell').css('height', cellSideLength);
 	$('.grid-cell').css('border-radius', 0.02*cellSideLength);

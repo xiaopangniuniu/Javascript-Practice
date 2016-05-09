@@ -3,6 +3,7 @@ function showNumberWithAnimation (i, j, randNumber) {
 
 	numberCell.css('background-color', getNumberBackgroudColor(randNumber));
 	numberCell.css('color', getNumberColor(randNumber));
+	numberCell.css('font-size', getNumberSize(randNumber));
 	numberCell.text(randNumber);
 
 	// animate, css, text都是jquery的函数

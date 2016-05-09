@@ -38,6 +38,13 @@ function getNumberColor (number) {
 	return "white";
 }
 
+function getNumberSize (number) {
+	if (number >= 1024)
+		return 0.4*cellSideLength+'px';
+
+	return 0.6*cellSideLength+'px';
+}
+
 function nospace (board) {
 	// 找是否有为0的元素
 	for (var i = 0; i < 4; i++)

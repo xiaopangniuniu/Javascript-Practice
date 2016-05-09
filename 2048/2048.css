@@ -1,8 +1,9 @@
+/* 百分比的参照说明 http://acgtofe.com/posts/2014/06/percentage-in-css */
 header {
     display: block;
     margin: 0px auto;
     width: 500px;
-    height: 200px;
+    height: 175px;
     text-align: center;
 
     font-size: 50px;
@@ -12,14 +13,14 @@ header {
 
 header h1 {
 	display: block;
-	width: 30%; /* 去掉内联样式 width: 150px!important*/
-    height: 75%;
+	width: 30%; /* 去掉内联样式 150px!important*/
+    height: 150px;
     line-height: 300%;
-    border-radius: 10%;
+    border-radius: 15px;
 	
-    font-size: 100%;
+    font-size: 50px;
     font-weight: bold;
-    margin: 2% auto;
+    margin: 10px auto;
     color: #FFFFFF;
     background-color: #FFEB3B;
     float: left;
@@ -30,7 +31,7 @@ header #right-layout {
     width: 310px;
     height: 150px;
     margin: 10px auto;
-    margin-left: 20px; /* 20px */
+    margin-left: 20px;
     float: right;
 }
 
@@ -78,6 +79,7 @@ header #newgamebutton {
     border-radius: 10px; /* 圆角 */
 
     /* "New Game"的样式 */
+    line-height: 100%;
     font-size: 20px;
     color: white;
     text-decoration: none; /* 去掉超链接的下划线 */
