@@ -476,7 +476,7 @@ function undo() {
 			board[i][j] = oldBoard[i][j];
 			if (board[i][j] != 0 ) {
 				// 显示时需要有动画效果
-				// showNumberWithAnimation(i, j, board[i][j]);
+				showNumberWithAnimation(i, j, board[i][j]);
 			}
 		}			
 	score = oldScore;	
